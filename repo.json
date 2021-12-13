@@ -1,0 +1,22 @@
+[
+  {
+    "Author": "Brian",
+    "Name": "Linguist",
+    "Description": "A simple chat translator.",
+    "InternalName": "Linguist",
+    "AssemblyVersion": "1.0.0.0",
+    "RepoUrl": "https://github.com/brian9206/Linguist",
+    "ApplicableVersion": "any",
+    "Tags": [
+      "social"
+    ],
+    "DalamudApiLevel": 4,
+    "IsHide": "False",
+    "IsTestingExclusive": "False",
+    "LastUpdated": 1639410521,
+    "DownloadCount": 0,
+    "DownloadLinkInstall": "https://github.com/brian9206/Linguist/releases/download/1.0.0/latest.zip",
+    "DownloadLinkTesting": "https://github.com/LeonBlade/BDTHPlugin/releases/download/1.0.0/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/LeonBlade/BDTHPlugin/releases/download/1.0.0/latest.zip"
+  }
+]

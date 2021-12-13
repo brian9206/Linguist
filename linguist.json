@@ -1,0 +1,11 @@
+{
+  "Author": "Brian",
+  "Name": "Linguist",
+  "Punchline": "A simple chat translator.",
+  "Description": "A simple chat translator. Type /trn to show configuration.",
+  "InternalName": "linguist",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "social"
+  ]
+}
