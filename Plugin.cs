@@ -1,4 +1,5 @@
-﻿using Dalamud.Data;
+﻿using System.Threading.Tasks;
+using Dalamud.Data;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
@@ -44,6 +45,12 @@ namespace Linguist
                 HelpMessage = "Show Linguist configuration window."
             });
 
+            CommandManager.AddHandler("/t", new CommandInfo(OnQuickTranslateCommand)
+            {
+                HelpMessage =
+                    "Quick translate a string of text. Useful for party finder description."
+            });
+
             Chat.ChatMessage += OnChatMessage;
             PluginInterface.UiBuilder.Draw += DrawUI;
             PluginInterface.UiBuilder.OpenConfigUi += OpenConfigUI;
@@ -53,6 +60,7 @@ namespace Linguist
         public void Dispose()
         {
             CommandManager.RemoveHandler("/trn");
+            CommandManager.RemoveHandler("/t");
             Worker.Dispose();
             PluginUI.Dispose();
             Chat.ChatMessage -= OnChatMessage;
@@ -61,6 +69,42 @@ namespace Linguist
         private void OnCommand(string command, string arguments)
         {
             OpenConfigUI();
+        }
+
+        private void OnQuickTranslateCommand(string command, string arguments)
+        {
+            if (string.IsNullOrEmpty(arguments))
+            {
+                Chat.PrintChat(new XivChatEntry()
+                {
+                    Type = XivChatType.SystemMessage,
+                    Message = "Usage: /t <text to translate>. For example: /t konbanwa"
+                });
+                
+                return;
+            }
+            
+            Task.Run(() =>
+            {
+                var translation = Translator.Translate(Configuration.Language, arguments);
+
+                if (translation == arguments)
+                {
+                    Chat.PrintChat(new XivChatEntry()
+                    {
+                        Type = XivChatType.SystemMessage,
+                        Message = "ERROR: Unable to translate this string of text."
+                    });
+                    
+                    return;
+                }
+                
+                Chat.PrintChat(new XivChatEntry()
+                {
+                    Type = XivChatType.SystemMessage,
+                    Message = translation
+                });
+            });
         }
         
         private void DrawUI()
