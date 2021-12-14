@@ -45,7 +45,7 @@ namespace Linguist
                 HelpMessage = "Show Linguist configuration window."
             });
 
-            CommandManager.AddHandler("/t", new CommandInfo(OnQuickTranslateCommand)
+            CommandManager.AddHandler("/tt", new CommandInfo(OnQuickTranslateCommand)
             {
                 HelpMessage =
                     "Quick translate a string of text. Useful for party finder description."
@@ -60,7 +60,7 @@ namespace Linguist
         public void Dispose()
         {
             CommandManager.RemoveHandler("/trn");
-            CommandManager.RemoveHandler("/t");
+            CommandManager.RemoveHandler("/tt");
             Worker.Dispose();
             PluginUI.Dispose();
             Chat.ChatMessage -= OnChatMessage;
@@ -78,7 +78,7 @@ namespace Linguist
                 Chat.PrintChat(new XivChatEntry()
                 {
                     Type = XivChatType.SystemMessage,
-                    Message = "Usage: /t <text to translate>. For example: /t konbanwa"
+                    Message = "Usage: /tt <text to translate>. For example: /tt konbanwa"
                 });
                 
                 return;
