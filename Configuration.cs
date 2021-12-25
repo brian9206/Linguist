@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
+using Dalamud.Game.ClientState.Keys;
 using Dalamud.Game.Text;
 using Dalamud.Plugin;
 
@@ -17,6 +18,9 @@ namespace Linguist
             XivChatType.Party,
             XivChatType.Alliance
         };
+
+        public VirtualKey Modifier { get; set; } = VirtualKey.LMENU;
+        public VirtualKey Key { get; set; } = VirtualKey.T;
 
         [NonSerialized]
         private DalamudPluginInterface pluginInterface;

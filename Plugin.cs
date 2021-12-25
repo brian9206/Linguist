@@ -7,6 +7,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
 using Dalamud.Plugin;
+using ImGuiNET;
 using Linguist.Utilities;
 
 namespace Linguist
@@ -73,38 +74,10 @@ namespace Linguist
 
         private void OnQuickTranslateCommand(string command, string arguments)
         {
-            if (string.IsNullOrEmpty(arguments))
-            {
-                Chat.PrintChat(new XivChatEntry()
-                {
-                    Type = XivChatType.SystemMessage,
-                    Message = "Usage: /tt <text to translate>. For example: /tt konbanwa"
-                });
-                
-                return;
-            }
+            if (!string.IsNullOrEmpty(arguments))
+                ImGui.SetClipboardText(arguments);
             
-            Task.Run(() =>
-            {
-                var translation = Translator.Translate(Configuration.Language, arguments);
-
-                if (translation == arguments)
-                {
-                    Chat.PrintChat(new XivChatEntry()
-                    {
-                        Type = XivChatType.SystemMessage,
-                        Message = "ERROR: Unable to translate this string of text."
-                    });
-                    
-                    return;
-                }
-                
-                Chat.PrintChat(new XivChatEntry()
-                {
-                    Type = XivChatType.SystemMessage,
-                    Message = translation
-                });
-            });
+            PluginUI.IsTranslationPopupVisible = true;
         }
         
         private void DrawUI()
