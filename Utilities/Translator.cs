@@ -30,13 +30,13 @@ namespace Linguist.Utilities
                 httpClient.DefaultRequestHeaders.Add("User-Agent",
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36");
                 httpClient.Timeout = TimeSpan.FromSeconds(2);
-                var json = JObject.Parse(httpClient.GetStringAsync("https://clients5.google.com/translate_a/t?" + query)
+                var json = JArray.Parse(httpClient.GetStringAsync("https://clients5.google.com/translate_a/t?" + query)
                     .GetAwaiter().GetResult());
 
                 var builder = new StringBuilder();
-                foreach (var sentence in (JArray)json["sentences"])
+                foreach (var sentence in json)
                 {
-                    builder.Append(sentence["trans"]);
+                    builder.Append(sentence);
                     builder.Append(' ');
                 }
 

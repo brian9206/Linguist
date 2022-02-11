@@ -4,7 +4,7 @@
     "Name": "Linguist",
     "Description": "A simple chat translator.",
     "InternalName": "Linguist",
-    "AssemblyVersion": "1.0.2.0",
+    "AssemblyVersion": "1.0.3.0",
     "RepoUrl": "https://github.com/brian9206/Linguist",
     "ApplicableVersion": "any",
     "Tags": [
@@ -15,8 +15,8 @@
     "IsTestingExclusive": false,
     "LastUpdated": 1639410521,
     "DownloadCount": 0,
-    "DownloadLinkInstall": "https://github.com/brian9206/Linguist/releases/download/1.0.2/latest.zip",
-    "DownloadLinkTesting": "https://github.com/brian9206/Linguist/releases/download/1.0.2/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/brian9206/Linguist/releases/download/1.0.2/latest.zip"
+    "DownloadLinkInstall": "https://github.com/brian9206/Linguist/releases/download/1.0.3/latest.zip",
+    "DownloadLinkTesting": "https://github.com/brian9206/Linguist/releases/download/1.0.3/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/brian9206/Linguist/releases/download/1.0.3/latest.zip"
   }
 ]

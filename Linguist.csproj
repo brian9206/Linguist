@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Authors>Brian</Authors>
-    <Version>1.0.2.0</Version>
+    <Version>1.0.3.0</Version>
     <Description>A simple chat translator</Description>
     <PackageProjectUrl>https://github.com/brian9206/Linguist</PackageProjectUrl>
   </PropertyGroup>
